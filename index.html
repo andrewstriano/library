@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Library</title>
+  </head>
+  <body>
+    <div class="book-menu">
+      <h3>My Books</h3>
+      <div class="book-container">
+        <button class="book">book 1</button>
+        <button class="book">book 2</button>
+        <button class="book">book 3</button>
+        <button class="book">book 4</button>
+        <button class="book">book 5</button>
+      </div>
+      <button class="add-book-button">Add Book</button>
+    </div>
+
+    <div class="main-content-area">
+      <div class="form-container">
+        <h3>New Book</h3>
+        <form id="form">
+          <ul class="form-list">
+            <li>
+              <label for="title">Book Title:</label>
+              <input type="text" name="title" id="title" />
+            </li>
+            <li>
+              <label for="author">Author:</label>
+              <input type="text" name="author" id="author" />
+            </li>
+            <li>
+              <label for="numberOfPages">Number of pages:</label>
+              <input type="number" name="numberOfPages" id="numberOfPages" />
+            </li>
+            <li class="check">
+              <fieldset name="Read">
+                <legend>Have you read this book?</legend>
+                <div class="check-item">
+                  <label for="read">read it</label>
+                  <input type="checkbox" name="read" id="read" />
+                </div>
+              </fieldset>
+            </li>
+            <li><input id="submit" type="submit" value="Add Book" /></li>
+          </ul>
+        </form>
+      </div>
+      <div class="display-book">
+        <div class="book-card">
+          <div>
+            <h4>Title of book</h4>
+            <button class="close-button">X</button>
+          </div>
+          <h5>title of author</h5>
+          <p>Number of pages</p>
+          <p>read</p>
+        </div>
+        <div class="book-card">
+          <div>
+            <h4>Title of book</h4>
+            <button class="close-button">X</button>
+          </div>
+          <h5>title of author</h5>
+          <p>Number of pages</p>
+          <p>read</p>
+        </div>
+        <div class="book-card">
+          <div>
+            <h4>Title of book</h4>
+            <button class="close-button">X</button>
+          </div>
+          <h5>title of author</h5>
+          <p>Number of pages</p>
+          <p>read</p>
+        </div>
+        <div class="book-card">
+          <div>
+            <h4>Title of book</h4>
+            <button class="close-button">X</button>
+          </div>
+          <h5>title of author</h5>
+          <p>Number of pages</p>
+          <p>read</p>
+        </div>
+        <div class="book-card">
+          <div>
+            <h4>Title of book</h4>
+            <button class="close-button">X</button>
+          </div>
+          <h5>title of author</h5>
+          <p>Number of pages</p>
+          <p>read</p>
+        </div>
+        <div class="book-card">
+          <div>
+            <h4>Title of book</h4>
+            <button class="close-button">X</button>
+          </div>
+          <h5>title of author</h5>
+          <p>Number of pages</p>
+          <p>read</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="JS/main.js"></script>
+</html>
