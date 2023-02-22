@@ -1,6 +1,5 @@
 :root{
     --gradient:linear-gradient(135deg, rgb(255, 131, 131), rgb(114, 114, 255));
-
 }
 body {
     display: grid;
@@ -9,14 +8,15 @@ body {
     margin: 0;
     font-family: roboto, sans-serif;
 }
+/* side bar styles */
 .book-menu{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .book-menu h3{
-height: 80px;
-font-size: 2.1rem;
+    height: 80px;
+    font-size: 2.1rem;
 }
 .book-container{
     flex: 1;
@@ -37,13 +37,13 @@ font-size: 2.1rem;
 }
 
 .delete-button{
-position: absolute;
-height: 35px;
-width: 35px;
-right: 5%;
-top:calc(50% - (35px/2));
-border: none;
-background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    right: 5%;
+    top:calc(50% - (35px/2));
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
 }
 .delete-button:hover{
     color: white;
@@ -69,12 +69,12 @@ button:hover, #submit:hover{
     background: var(--gradient);
     transition: all .2s;
 }
-
-
+/* form and tile area styles */
 .main-content-area{
     background: var(--gradient);
     justify-content: center;
 }
+/* form styles */
 .form-container{
     width: 70%;
     max-width: 800px;
@@ -114,8 +114,6 @@ form{
     display: flex;
     flex-direction: column;
     width: 80%;
-    /* align-items: end;
-    margin: 2rem auto; */
 }
 input, fieldset{
     box-sizing: border-box;
@@ -149,7 +147,7 @@ input:focus-visible{
     outline: none;
     transform: scale(1.1);
 }
-
+/* Book tile styles */
 .display-book{
     display: flex;
     justify-content: space-evenly;
