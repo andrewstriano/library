@@ -33,59 +33,73 @@ function addBook(title, author, numberOfPages, read) {
   myLibrary.push(book);
 
   function createTile() {
-    // create elements for the book tiles
-    const bookCard = document.createElement("div");
-    const header = document.createElement("div");
-    const closeButton = document.createElement("button");
-    const title = document.createElement("h4");
-    const author = document.createElement("h5");
-    const pages = document.createElement("p");
-    const read = document.createElement("button");
-    read.setAttribute("id", "read-button");
-
-    // set the inner text to the values in form
-    title.innerText = book.title;
-    author.innerText = book.author;
-    pages.innerText = book.numberOfPages;
-    closeButton.innerText = "X";
-    // add classes for styling
-    read.classList.add("notRead");
-    read.classList.add("read");
-    closeButton.classList.add("close-button");
-    bookCard.classList.add("book-card");
-
-    closeButton.addEventListener("click", () => {
-      bookCard.remove();
-    });
-
-    // allows user to change color and text of read button
-
-    read.addEventListener("click", () => {
-      if (read.innerText === "Read") {
-        book.haveRead = false;
-        read.classList.toggle("read");
-        read.classList.toggle("notRead");
-        read.innerText = "Not read";
-      } else {
-        book.haveRead = true;
-        read.classList.toggle("read");
-        read.classList.toggle("notRead");
-        read.innerText = "Read";
-      }
-    });
-
-    // Choses how to display read button based on input
-    if (book.haveRead === true) {
-      read.innerText = "Read";
-      read.classList.toggle("notRead");
+    // This creates a filter that will produce an error if you try to create more than one Book tile for the same book
+    if (
+      document.querySelectorAll(
+        `[data--Book="${createTileButton.dataset.Book}"]`
+      ).length > 1
+    ) {
+      console.log(
+        document
+          .querySelector(".book-container")
+          .querySelector(`[data--Book="${createTileButton.dataset.Book}"]`)
+      );
+      alert("Error, You can only have one card per Book");
     } else {
-      read.innerText = "Not Read";
-      read.classList.toggle("read");
-    }
+      // create elements for the book tiles
+      const bookCard = document.createElement("div");
+      const header = document.createElement("div");
+      const closeButton = document.createElement("button");
+      const title = document.createElement("h4");
+      const author = document.createElement("h5");
+      const pages = document.createElement("p");
+      const read = document.createElement("button");
+      read.setAttribute("id", "read-button");
+      bookCard.dataset.Book = createTileButton.dataset.Book;
+      // set the inner text to the values in form
+      title.innerText = book.title;
+      author.innerText = book.author;
+      pages.innerText = book.numberOfPages;
+      closeButton.innerText = "X";
+      // add classes for styling
+      read.classList.add("notRead");
+      read.classList.add("read");
+      closeButton.classList.add("close-button");
+      bookCard.classList.add("book-card");
 
-    header.append(title, closeButton);
-    bookCard.append(header, author, pages, read);
-    displayBook.append(bookCard);
+      closeButton.addEventListener("click", () => {
+        bookCard.remove();
+      });
+
+      // allows user to change color and text of read button
+
+      read.addEventListener("click", () => {
+        if (read.innerText === "Read") {
+          book.haveRead = false;
+          read.classList.toggle("read");
+          read.classList.toggle("notRead");
+          read.innerText = "Not read";
+        } else {
+          book.haveRead = true;
+          read.classList.toggle("read");
+          read.classList.toggle("notRead");
+          read.innerText = "Read";
+        }
+      });
+
+      // Choses how to display read button based on input
+      if (book.haveRead === true) {
+        read.innerText = "Read";
+        read.classList.toggle("notRead");
+      } else {
+        read.innerText = "Not Read";
+        read.classList.toggle("read");
+      }
+
+      header.append(title, closeButton);
+      bookCard.append(header, author, pages, read);
+      displayBook.append(bookCard);
+    }
   }
 
   // Create Button
