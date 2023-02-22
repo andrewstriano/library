@@ -9,11 +9,16 @@ const notRead = document.querySelector("#not-read");
 const submitButton = document.querySelector("#submit");
 const form = document.querySelector("#form");
 
+let bookId = 1;
+
 function Book(title, author, numberOfPages, haveRead) {
-  (this.title = title),
+  (this.id = bookId),
+    (this.title = title),
     (this.author = author),
     (this.numberOfPages = numberOfPages),
     (this.haveRead = haveRead);
+
+  bookId++;
 }
 
 function addBookToLibrary(title, author, numberOfPages, read) {
@@ -41,7 +46,7 @@ function addBook(title, author, numberOfPages, read) {
 
   document.querySelector(".book-container").appendChild(newButton);
   newButton.innerText = book.title;
-  newButton.dataset.Book = myLibrary.length - 1;
+  newButton.dataset.Book = book.id;
 }
 
 form.addEventListener("submit", (event) => {
