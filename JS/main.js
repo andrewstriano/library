@@ -22,36 +22,29 @@ function addBookToLibrary(title, author, numberOfPages, read) {
 }
 
 function addBook(title, author, numberOfPages, read) {
+  // Collect Form Values
   title = titleInput.value;
   author = authorInput.value;
   numberOfPages = pagesInput.value;
   read = readBox.value;
-  const newBook = new Book(title, author, numberOfPages, read);
-  myLibrary.push(newBook);
-  console.log(myLibrary);
-  return newBook;
-}
 
-function displayBook() {
-  const book = myLibrary[myLibrary.length - 1];
+  // Create new Book/Add to lib
+  const book = new Book(title, author, numberOfPages, read);
+  myLibrary.push(book);
+
+  //Create Button
   const newButton = document.createElement("button");
   newButton.classList.add("book");
+  newButton.addEventListener("click", () => {
+    alert(book.title);
+  });
+
   document.querySelector(".book-container").appendChild(newButton);
   newButton.innerText = book.title;
   newButton.dataset.Book = myLibrary.length - 1;
 }
 
-function newBook(event) {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   addBook();
-  displayBook();
-}
-
-//   myLibrary.forEach((book) => {
-//     const newButton = document.createElement("button");
-//     newButton.classList.add("book");
-//     document.querySelector(".book-container").appendChild(newButton);
-//     newButton.innerText = book.title;
-//   });
-
-form.addEventListener("submit", newBook);
+});
