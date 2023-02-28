@@ -10,15 +10,15 @@ const displayBook = document.querySelector(".display-book");
 const closeFormButton = document.querySelector(".close-form-button");
 
 let bookId = 1;
-
-function Book(title, author, numberOfPages, haveRead) {
-  (this.id = bookId),
-    (this.title = title),
-    (this.author = author),
-    (this.numberOfPages = numberOfPages),
-    (this.haveRead = haveRead);
-
-  bookId++;
+class Book {
+  constructor(title, author, numberOfPages, haveRead) {
+    this.id = bookId;
+    bookId++;
+    this.title = title;
+    this.author = author;
+    this.numberOfPages = numberOfPages;
+    this.haveRead = haveRead;
+  }
 }
 
 function addBook(title, author, numberOfPages, read) {
